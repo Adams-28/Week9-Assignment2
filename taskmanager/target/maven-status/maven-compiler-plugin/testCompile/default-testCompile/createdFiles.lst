@@ -1,0 +1,5 @@
+net\skillspire\taskmanager\TaskmanagerApplicationTests.class
+net\skillspire\taskmanager\TaskRepositoryTest.class
+net\skillspire\taskmanager\TaskControllerTest.class
+net\skillspire\taskmanager\TaskServiceTest.class
+net\skillspire\taskmanager\TaskTest.class

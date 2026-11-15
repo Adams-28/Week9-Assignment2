@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>Task Manager</h1>
+
+    <p th:if="${successMessage}"
+       th:text="${successMessage}"
+       style="color:blue;">
+    </p>
+
+    <h2>All Tasks</h2>
+
+
+
+<a th:href="@{/tasks/new}">
+   Add Task
+   </a>
+
+<br><br>
+
+<!--- Adding filter to sort complete/incomplete tasks ----->
+<p>
+    Filter:
+
+    <a th:href="@{/tasks}">All</a>
+
+    <a th:href="@{/tasks(completed=true)}">
+        Completed
+    </a>
+
+
+    <a th:href="@{tasks(completed=false)}">
+        Not Completed
+    </a>
+</p>
+
+
+
+<!-----Creating a table for the tasks ----->
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>Completed</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+    <tr th:each ="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.dueDate}"></td>
+        <td th:text="${task.completed}"></td>
+        <td>
+            <a th:href="@{/tasks/{id}(id=${task.id})}">
+                View
+            </a>
+
+            <a th:href="@{/tasks/{id}/edit(id=${task.id})}">
+                edit
+            </a>
+
+            <form th:action="@{/tasks/{id}/delete(id=${task.id})}"
+                  method="post"
+                  style="display:inline;">
+
+                <button type="submit">Delete</button>
+
+            </form>
+
+
+        </td>
+    </tr>
+
+
+    </tbody>
+
+</table>
+</body>
+</html>

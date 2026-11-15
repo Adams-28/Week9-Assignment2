@@ -1,0 +1,6 @@
+net\skillspire\taskmanager\TaskmanagerApplication.class
+net\skillspire\taskmanager\TaskException.class
+net\skillspire\taskmanager\Task.class
+net\skillspire\taskmanager\TaskService.class
+net\skillspire\taskmanager\TaskController.class
+net\skillspire\taskmanager\TaskRepository.class

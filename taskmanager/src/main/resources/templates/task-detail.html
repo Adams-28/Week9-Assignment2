@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Details</title>
+</head>
+<body>
+
+<h1>Task Details</h1>
+
+<a th:href="@{/tasks}">Return to Tasks</a>
+
+<br>
+
+
+<!--- Displaying task ID and title --->
+<h2 th:text="${task.title}">Task Title</h2>
+
+
+
+<p>
+    <strong>Task ID:</strong>
+    <span th:text="${task.id}"></span>
+</p>
+
+
+<!----Displaying task description and due date. ---->
+<p>
+    <strong>Description</strong>
+    <span th:text="${task.description}"></span>
+</p>
+
+<p>
+    <strong>Due Date</strong>
+    <span th:text="${task.dueDate}"></span>
+</p>
+
+
+
+<!--- Displaying if a task is completed or incomplete --->
+<p>
+    <strong>Status:</strong>
+    <span th:if="${task.completed}"
+          style="color: green;">
+        Completed
+    </span>
+
+
+    <span th:unless="${task.completed}"
+          style="color:red;">
+        Incomplete
+    </span>
+</p>
+
+
+
+<!--- Adding an edit task link to the details page --->
+
+<a th:href="@{/tasks/{id}/edit(id=${task.id})}">
+    Edit task
+</a>
+
+
+<!--- Adding a delete task button to the details page --->
+
+<form th:action="@{/tasks/{id}/delete(id=${task.id})}"
+      method="post">
+
+      <button type="submit">
+          Delete task
+      </button>
+
+</form>
+
+</body>
+</html>

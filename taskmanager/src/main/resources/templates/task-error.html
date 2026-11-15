@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Not Found</title>
+</head>
+<body>
+
+<h1>Task is not found!</h1>
+
+<p th:text="${errorMessage}">
+    The specified task could not be found. Please check task ID or the task may have been deleted.
+</p>
+
+<a th:href="@{/tasks}">Return to Task Manager</a>
+
+</body>
+</html>
